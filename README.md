@@ -57,3 +57,8 @@ fun installPip1() {
 - Antes de executar scripts de instalação, revise-os para garantir que estejam seguros e de acordo com os requisitos do seu sistema.
 
 Para mais informações e exemplos de uso, consulte o próprio código fonte.
+
+
+## Linguagem utilizada 
+
+[![My Skills](https://skills.thijs.gg/icons?i=kotlin)](https://skills.thijs.gg)
