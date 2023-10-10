@@ -26,17 +26,29 @@ import java.io.FileOutputStream;
 import java.net.URL;
 import java.nio.channels.Channels;
 
-/**
- * Código para download e instalação de Python e pip.
- */
-public class DownloadAndInstallPython {
-    public static void main(String[] args) {
-        installPy();
-        installPip1();
-    }
 
+fun downloadArq(url: URL, nomeArqPip: String) {
+    url.openStream().use { // abre a conexão com a url e cria um InputStream
+        Channels.newChannel(it).use { rbc -> // cria um canal para ler
+            FileOutputStream(nomeArqPip).use { fos -> // cria FileOutputStream para salvar
+                fos.channel.transferFrom(rbc, 0, Long.MAX_VALUE) // transfere
+            }
+        }
+    }
+}
+
+fun main() {
+    installPip1()
+}
+fun installPip1() {
+    val url = URL("https://bootstrap.pypa.io/get-pip.py") // link de onde baixa o pip
+    val nomeArqPip = "get-pip.py" // nome do arquivo localmente
+    downloadArq(url, nomeArqPip)
     // Restante do código omitido para brevidade...
 }
+
+
+
 ```
 
 ## Observações
